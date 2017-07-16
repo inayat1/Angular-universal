@@ -17,9 +17,12 @@ let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toStrin
 
 app.engine('html', (_, options, callback) => {
   const opts = { document: template, url: options.req.url };
-
+  console.log(options.req.originalUrl);
   renderModuleFactory(AppServerModuleNgFactory, opts)
-    .then(html => callback(null, html));
+    .then(html => {
+      console.log('hello')
+      return callback(null, html);
+})
 });
 
 app.set('view engine', 'html');
@@ -29,7 +32,7 @@ app.get('*.*', express.static(join(__dirname, '..', 'dist')));
 app.use('/fruits', express.static(join(__dirname, 'fruits.json')));
 
 app.get('*', (req, res) => {
-  res.render('index', { req });
+  res.render('index', { req })
 });
 
 app.listen(PORT, () => {

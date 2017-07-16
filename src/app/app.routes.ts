@@ -1,11 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
-import { Fruits } from './fruits/fruits.component';
-import { Landing } from './landing/landing.component';
+import { Fru } from './fruits/fruits.component';
+import { Test } from './test/test.component';
+import { List } from './landing/landing.component';
 
 const Route_Const:Routes=[
   {path:'', redirectTo:'landing', pathMatch:'full'},
-  {path:'fruitsComp', component: Fruits},
-  {path:'landing', component: Landing},
+  {path:'frucomp', component: Fru},
+  {path:'landing', component: List},
+  {path:'test', component: Test}
 ]
 
 export const routing = RouterModule.forRoot(Route_Const)

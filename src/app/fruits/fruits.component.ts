@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fruits',
-  template: `<div>hello fruits</div>`
+  selector: 'fru',
+  template: `<div>hello fruits</div>
+  <a routerLink="/landing" routerLinkActive="active">landing</a>`
 })
-export class Fruits {
+export class Fru {
   public fruits:any;
-  title = 'fruits';
+  title = 'fru';
 }
